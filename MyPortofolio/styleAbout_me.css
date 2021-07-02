@@ -1,0 +1,124 @@
+.container{
+    display: flex;
+    grid-area: container;
+    grid-gap:0.2rem;
+}
+.background {
+    grid-area: background;
+    grid-gap:0.2rem;
+    border-color:white rgb(136, 216, 182) rgb(136, 216, 182) white;
+    border-width: 20px 20px;
+    border-style: outset;
+    border-radius: 20px;
+    image-rendering: left;
+    font-family: "Salsa";
+    font-size: 22px;
+    text-align: right;
+    margin-left: 30%;
+    margin-top: 10px;
+    margin-right:5%;
+    position: absolute;
+    padding-right: 20px;
+    box-shadow: 10px 10px 10px rgb(176, 185, 182);
+}
+.background img{
+    margin-left:10px;
+}
+.text{
+    grid-area: text;
+    grid-gap:0.2rem;
+    line-height: 1.8;
+    min-height: 100%;
+    align-items: left;
+    justify-content: center;
+    font-family:"Salsa";
+    font-size: 30px;
+    text-align: left;
+    margin-left: 50px;
+    float: left;
+    padding: 50px;
+    position: relative;
+  }
+.btn{
+    display: inline-block;
+    padding: 7px 9px 7px 9px;
+    background: rgb(206, 214, 211);
+    font-size: 2rem;
+    text-decoration: none;
+    color:  rgb(67, 177, 131);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgb(176, 185, 182);
+    transition: background 0.5s;
+}
+.btn:hover {
+    background: rgb(136, 216, 182);
+}
+h1{
+    color: rgb(218, 40, 40);
+    margin-right:40px;
+}
+a{
+    color: rgb(218, 40, 40);
+    text-decoration:none; 
+}
+h2{
+    color: rgb(67, 177, 131);
+    margin-right:40px;
+}
+p{
+    color: rgb(67, 177, 131);
+}
+
+/*rotating gallery*/
+.box{
+  grid-area: box;
+  grid-gap:0.2rem;
+  position: absolute; 
+  width: 200px;
+  height: 200px;
+  box-sizing:border-box;
+  margin-left: 0px;
+  align-items: center;
+  margin-top: 28%;
+  transform-style: preserve-3d;
+  animation: animate 40s linear infinite;
+}
+@keyframes animate{
+    0%{
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100%{
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+.box span{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 50%;
+    height: 50%;
+    transform-origin: center;
+    transform-style:preserve-3d;
+    transform: rotateY(calc(var(--i)*45deg)) translateZ(200px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
+}
+.box span img{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    object-fit:fill;
+}
+
+/*mobile responsive*/
+@media (max-width:500px){
+    .container{
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+      "background"
+      "text"
+      "box";
+    }
+  }

@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+  }
+
+div.p{
+    text-decoration:none;
+}
+
+div.gallery {
+    grid-area: gallery;
+    margin: 5px;
+    border: 2px solid rgb(26, 160, 131);
+    float: left;
+    width: 400px;
+    height: 450px;
+}
+  
+div.gallery:hover {
+    border: 3px solid rgb(6, 180, 111);
+}
+  
+div.gallery img {
+    width: 100%;
+    height: 300px;
+}
+  
+div.desc {
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Salsa";
+}
+
+/*mobile responsive*/
+@media (max-width:500px){
+    .gallery{
+        grid-template-rows: 3fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "gallery"
+        "gallery"
+        "gallery"
+        "gallery";
+    }
+}
+
